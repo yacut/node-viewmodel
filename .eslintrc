@@ -18,13 +18,11 @@ globals:
   beforeEach : false
   afterEach : false
   after : false
-  before : false
   beforeEachChapter: false
   describeScenario: false
   describeChapter: false
   describeStep: false
   document : false
-  window: false
   File : false
   FormData: false
   QCodeDecoder: false
@@ -37,7 +35,6 @@ globals:
 
 rules:
   # CUSTOM RULES
-  no-only-in-tests: 2
 
   # ERRORS
   no-unused-vars: [2, {vars: all, args: none}]
@@ -79,17 +76,3 @@ rules:
   eol-last: 0
   no-trailing-spaces: 0
   indent: 0
-
- # REACT
-  react/jsx-no-undef: 2
-  react/jsx-uses-vars: 1
-  react/jsx-quotes: 1
-  react/jsx-uses-react: 1
-  react/no-did-mount-set-state: 1
-  react/no-did-update-set-state: 1
-  react/prop-types: 1
-  react/react-in-jsx-scope: 1
-  react/self-closing-comp: 1
-  react/no-multi-comp: 0
-  react/wrap-multilines: 1
-  react/display-name: 0
