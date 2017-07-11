@@ -5,8 +5,19 @@ var expect = require('expect.js'),
     ConcurrencyError = require('../lib/concurrencyError'),
     Base = require('../lib/base'),
     ViewModel = require('../lib/viewmodel'),
-    InMemory = require('../lib/databases/inmemory'),
+    InMemory = require('../lib/databases/dynamodb'),
     dummyWriteRepo;
+
+// precondition: dynalite is running
+// TODO: remove aws from test later
+  var AWS = require('aws-sdk');
+  AWS.config.update({
+    region: 'us-east-1',
+    accessKeyId: 'some-id',
+    secretAccessKey: 'some-secret',
+    endpoint: 'http://localhost:4567',
+  });
+//
 
 function cleanRepo(done) {
   dummyWriteRepo.clearAll(done);
@@ -77,7 +88,7 @@ describe('Repository read', function() {
 
     describe('with options containing a type property with the value of', function() {
 
-      var types = ['inmemory', 'mongodb', 'tingodb', 'couchdb', 'redis'/*, 'elasticsearch', 'documentdb', 'azuretable'*/];
+      var types = ['dynamodb'/*, 'mongodb', 'tingodb', 'couchdb', 'redis'/*, 'elasticsearch', 'documentdb', 'azuretable'*/];
 
       types.forEach(function(type) {
 
